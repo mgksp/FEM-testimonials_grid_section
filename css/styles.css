@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+:root {
+  --moderate-violet: hsl(263, 55%, 52%);
+  --dkr-grayish-blue: hsl(217, 19%, 35%);
+  --dkr-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --lavender: hsl(264, 83%, 70%);
+  --lt-gray: hsl(0, 0%, 81%);
+  --lt-grayish-blue: hsl(210, 46%, 95%);
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  background-color: var(--lt-grayish-blue);
+  display: grid;
+  grid-template-rows: 1fr -webkit-min-content;
+  grid-template-rows: 1fr min-content;
+}
+
+.border-lavender {
+  border: 2px solid var(--lavender);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(2.4rem, 1fr) minmax(0, 111rem) minmax(2.4rem, 1fr);
+}
+
+.testimonials-grid {
+  grid-column-start: 2;
+  display: grid;
+  grid-template-areas: "daniel" "jonathan" "jeanette" "patrick" "kira";
+  gap: 2.4rem;
+  padding-block: 7rem;
+}
+@media only screen and (min-width: 1024px) {
+  .testimonials-grid {
+    padding: 0;
+    place-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "daniel daniel jonathan kira" "jeanette patrick patrick kira";
+  }
+}
+
+.testimonial {
+  display: grid;
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  gap: 1.6rem;
+  grid-template-areas: "img student" "heading heading" "quote quote";
+  border-radius: 0.8rem;
+  background-color: white;
+  padding: 2.6rem 3.2rem;
+  color: var(--dkr-grayish-blue);
+}
+.testimonial__img {
+  grid-area: img;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+}
+.testimonial__student {
+  grid-area: student;
+}
+.testimonial__student__verified {
+  font-size: 1.1rem;
+  opacity: 50%;
+}
+.testimonial__heading {
+  grid-area: heading;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: 600;
+}
+.testimonial__quote {
+  grid-area: quote;
+  line-height: 1.8rem;
+  opacity: 70%;
+}
+.testimonial--violet {
+  background-image: url("../images/bg-pattern-quotation.svg");
+  background-position: right 11% top;
+  background-repeat: no-repeat;
+  background-color: var(--moderate-violet);
+  color: var(--white);
+}
+@media only screen and (min-width: 1024px) {
+  .testimonial--violet {
+    background-position: right 19% top;
+  }
+}
+.testimonial--blue {
+  background-color: var(--dkr-grayish-blue);
+  color: var(--white);
+}
+.testimonial--black {
+  background-color: var(--dkr-blackish-blue);
+  color: var(--white);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-block: 1rem;
+  color: var(--dkr-grayish-blue);
+}
+.attribution a {
+  color: var(--moderate-violet);
+  text-decoration: none;
+  font-weight: 600;
+}
